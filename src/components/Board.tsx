@@ -20,31 +20,40 @@ export function Board() {
 
   function renderBoard() {
     if (winner === "X") {
-      return <span>X wins!</span>;
+      return <span className="text-center text-2xl font-bold">X wins!</span>;
     } else if (winner === "O") {
-      return <span>O wins!</span>;
+      return <span className="text-center text-2xl font-bold">O wins!</span>;
     } else if (!winner && isGameOver) {
-      return <span>Tie!</span>;
+      return <span className="text-center text-2xl font-bold">Tie!</span>;
     } else {
-      return board.map((value, index) => (
-        <Square
-          key={index}
-          value={value}
-          handleClick={() => handleChooseSquare(index)}
-        />
-      ));
+      return (
+        <section>
+          <h1 className="text-center text-2xl font-bold mb-4">
+            {player}'s turn
+          </h1>
+          <div className="grid grid-cols-3 grid-rows-3 gap-2">
+            {board.map((value, index) => (
+              <Square
+                key={index}
+                value={value}
+                handleClick={() => handleChooseSquare(index)}
+              />
+            ))}
+          </div>
+        </section>
+      );
     }
   }
 
   return (
-    <section className="grid grid-cols-3 grid-rows-3 gap-2">
+    <div className="flex flex-col items-center gap-4">
       {renderBoard()}
       <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded transition-colors duration-300"
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold w-80 py-4 rounded transition-colors duration-300"
         onClick={handleRestartGame}
       >
         Restart
       </button>
-    </section>
+    </div>
   );
 }

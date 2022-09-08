@@ -1,17 +1,10 @@
 import { Board } from "../@types/Board";
 
 export function getCurrentPlayer(board: Board) {
-  const x = board.reduce(
-    (previousValue, currentValue) =>
-      currentValue === "X" ? previousValue + 1 : previousValue,
-    0
-  );
-  const o = board.reduce(
-    (previousValue, currentValue) =>
-      currentValue === "O" ? previousValue + 1 : previousValue,
-    0
-  );
-  return x <= o ? "X" : "O";
+  const xAmountOnBoard = board.filter((value) => value === "X").length;
+  const oAmountOnBoard = board.filter((value) => value === "O").length;
+
+  return xAmountOnBoard <= oAmountOnBoard ? "X" : "O";
 }
 
 export function getWinner(board: Board) {

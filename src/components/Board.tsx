@@ -36,6 +36,7 @@ export function Board() {
               <Square
                 key={index}
                 value={value}
+                disabled={value !== ""}
                 handleClick={() => handleChooseSquare(index)}
               />
             ))}

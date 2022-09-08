@@ -6,7 +6,7 @@ interface SquareProps {
 export function Square({ value, handleClick }: SquareProps) {
   return (
     <button
-      className="w-24 h-24 font-bold text-4xl bg-dark text-white dark:bg-white dark:text-black"
+      className="w-24 h-24 font-bold text-4xl bg-black text-white dark:bg-white dark:text-black"
       onClick={handleClick}
     >
       {value}

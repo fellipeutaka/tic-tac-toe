@@ -25,6 +25,8 @@ export function Square({ value, handleClick, disabled, index }: SquareProps) {
       className={`w-24 h-24 font-bold text-4xl ${getBorderStyle()} disabled:cursor-not-allowed`}
       onClick={handleClick}
       disabled={disabled}
+      type="button"
+      aria-label={String(index)}
     >
       {value}
     </button>

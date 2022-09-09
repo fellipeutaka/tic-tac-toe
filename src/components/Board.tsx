@@ -28,15 +28,16 @@ export function Board() {
     } else {
       return (
         <section>
-          <h1 className="text-center text-2xl font-bold mb-4">
+          <h1 className="text-center text-2xl font-bold mb-8">
             {player}'s turn
           </h1>
-          <div className="grid grid-cols-3 grid-rows-3 gap-2">
+          <div className="grid grid-cols-3 grid-rows-3">
             {board.map((value, index) => (
               <Square
                 key={index}
                 value={value}
                 disabled={value !== ""}
+                index={index}
                 handleClick={() => handleChooseSquare(index)}
               />
             ))}
@@ -47,7 +48,7 @@ export function Board() {
   }
 
   return (
-    <div className="flex flex-col items-center gap-4">
+    <div className="flex flex-col items-center gap-8">
       {renderBoard()}
       <button
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold w-80 py-4 rounded transition-colors duration-300"

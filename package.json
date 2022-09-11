@@ -1,12 +1,13 @@
 {
   "name": "tic-tac-toe",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -19,7 +20,8 @@
     "autoprefixer": "^10.4.8",
     "postcss": "^8.4.16",
     "tailwindcss": "^3.1.8",
-    "typescript": "^4.6.4",
-    "vite": "^3.1.0"
+    "typescript": "^4.8.3",
+    "vite": "^3.1.0",
+    "vitest": "^0.23.1"
   }
 }

@@ -8,6 +8,7 @@ specifiers:
   '@types/testing-library__jest-dom': ^5.14.5
   '@vitejs/plugin-react': ^3.0.1
   autoprefixer: ^10.4.13
+  clsx: ^1.2.1
   jsdom: ^21.1.0
   postcss: ^8.4.21
   react: ^18.2.0
@@ -18,6 +19,7 @@ specifiers:
   vitest: ^0.28.3
 
 dependencies:
+  clsx: 1.2.1
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
 
@@ -990,6 +992,11 @@ packages:
       slice-ansi: 5.0.0
       string-width: 5.1.2
     dev: true
+
+  /clsx/1.2.1:
+    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+    engines: {node: '>=6'}
+    dev: false
 
   /color-convert/1.9.3:
     resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==}

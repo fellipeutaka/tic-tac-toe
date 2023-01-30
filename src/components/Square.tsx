@@ -1,4 +1,5 @@
 import { HTMLProps } from "react";
+import { clsx } from "clsx";
 
 type SquareProps = HTMLProps<HTMLButtonElement> & {
   value: string;
@@ -6,23 +7,25 @@ type SquareProps = HTMLProps<HTMLButtonElement> & {
   handleClick(): void;
 };
 
-export function Square({ value, handleClick, disabled, index }: SquareProps) {
-  function getBorderStyle() {
-    const indexesWithoutBorderRight = [2, 5, 8];
-    if (index === 8) {
-      return "";
-    } else if (indexesWithoutBorderRight.includes(index)) {
-      return "border-b border-blue-500";
-    } else if (index > 5) {
-      return "border-r border-blue-500";
-    } else {
-      return "border-r border-b border-blue-500";
-    }
-  }
+const indexesWithoutBorderRight = [2, 5, 8];
 
+export function Square({ value, handleClick, disabled, index }: SquareProps) {
   return (
     <button
-      className={`w-24 h-24 font-bold text-4xl ${getBorderStyle()} disabled:cursor-not-allowed`}
+      className={clsx(
+        "w-24 h-24 font-bold text-4xl disabled:cursor-not-allowed",
+        {
+          "border-b border-blue-500":
+            indexesWithoutBorderRight.includes(index) && index < 8,
+        },
+        {
+          "border-r border-blue-500": index > 5 && index < 8,
+        },
+        {
+          "border-r border-b border-blue-500":
+            !indexesWithoutBorderRight.includes(index) && index <= 5,
+        }
+      )}
       onClick={handleClick}
       disabled={disabled}
       type="button"

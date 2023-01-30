@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useBoard } from "../hooks/useBoard";
+import { LineWinner } from "./LineWinner";
+import { RenderIf } from "./RenderIf";
 import { Square } from "./Square";
 
 const boardInitialState = Array<string>(9).fill("");
@@ -18,38 +20,38 @@ export function Board() {
     setBoard(boardInitialState);
   }
 
-  function renderBoard() {
-    if (winner === "X") {
-      return <span className="text-center text-2xl font-bold">X wins!</span>;
-    } else if (winner === "O") {
-      return <span className="text-center text-2xl font-bold">O wins!</span>;
-    } else if (!winner && isGameOver) {
-      return <span className="text-center text-2xl font-bold">Tie!</span>;
-    } else {
-      return (
-        <section>
+  return (
+    <div className="flex flex-col items-center gap-8">
+      <section>
+        <RenderIf condition={!winner && isGameOver}>
+          <h1 className="text-center text-2xl font-bold mb-8">Tie!</h1>
+        </RenderIf>
+        <RenderIf condition={winner === "X"}>
+          <h1 className="text-center text-2xl font-bold mb-8">X wins!</h1>
+        </RenderIf>
+        <RenderIf condition={winner === "O"}>
+          <h1 className="text-center text-2xl font-bold mb-8">O wins!</h1>
+        </RenderIf>
+        <RenderIf condition={!winner && !isGameOver}>
           <h1 className="text-center text-2xl font-bold mb-8">
             {player}'s turn
           </h1>
-          <div className="grid grid-cols-3 grid-rows-3">
-            {board.map((value, index) => (
-              <Square
-                key={index}
-                value={value}
-                disabled={value !== ""}
-                index={index}
-                handleClick={() => handleChooseSquare(index)}
-              />
-            ))}
-          </div>
-        </section>
-      );
-    }
-  }
-
-  return (
-    <div className="flex flex-col items-center gap-8">
-      {renderBoard()}
+        </RenderIf>
+        <div className="grid grid-cols-3 grid-rows-3 relative">
+          {board.map((value, index) => (
+            <Square
+              key={index}
+              value={value}
+              disabled={value !== "" || Boolean(winner) || isGameOver}
+              index={index}
+              onClick={() => handleChooseSquare(index)}
+            />
+          ))}
+          <RenderIf condition={Boolean(winner)}>
+            <LineWinner board={board} />
+          </RenderIf>
+        </div>
+      </section>
       <button
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold w-80 py-4 rounded transition-colors duration-300"
         type="button"

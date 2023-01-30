@@ -4,12 +4,11 @@ import { clsx } from "clsx";
 type SquareProps = HTMLProps<HTMLButtonElement> & {
   value: string;
   index: number;
-  handleClick(): void;
 };
 
 const indexesWithoutBorderRight = [2, 5, 8];
 
-export function Square({ value, handleClick, disabled, index }: SquareProps) {
+export function Square({ value, disabled, index, ...props }: SquareProps) {
   return (
     <button
       className={clsx(
@@ -26,7 +25,7 @@ export function Square({ value, handleClick, disabled, index }: SquareProps) {
             !indexesWithoutBorderRight.includes(index) && index <= 5,
         }
       )}
-      onClick={handleClick}
+      {...props}
       disabled={disabled}
       type="button"
       aria-label={String(index)}

@@ -1,7 +1,14 @@
+import { Player } from "@tic-tac-toe/@types/Player";
 import { Board } from "../@types/Board";
 import { getCurrentPlayer, getIsGameOver, getWinner } from "../utils/board";
 
-export function useBoard(board: Board) {
+type UseBoardResponse = {
+  player: Player;
+  winner: Player | null;
+  isGameOver: boolean;
+};
+
+export function useBoard(board: Board): UseBoardResponse {
   const player = getCurrentPlayer(board);
   const winner = getWinner(board);
   const isGameOver = getIsGameOver(board);

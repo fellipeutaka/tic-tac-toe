@@ -1,4 +1,3 @@
-import { expect, test } from "vitest";
 import { getCurrentPlayer, getIsGameOver, getWinner } from "./board";
 
 const emptyBoard = Array<string>(9).fill("");

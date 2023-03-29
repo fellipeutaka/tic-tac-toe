@@ -53,7 +53,7 @@ export function Board() {
         </div>
       </section>
       <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold w-80 py-4 rounded transition-colors duration-300"
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold w-60 sm:w-80 py-4 rounded transition-colors duration-300"
         type="button"
         onClick={handleRestartGame}
       >

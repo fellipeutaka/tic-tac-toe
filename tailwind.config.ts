@@ -1,16 +1,17 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from "tailwindcss";
+
+export default {
   content: ["./src/**/*.tsx"],
   theme: {
     extend: {
       keyframes: {
         line: {
           from: {
-            opacity: 0,
+            opacity: "0",
             width: "0",
           },
           to: {
-            opacity: 1,
+            opacity: "1",
             width: "100%",
           },
         },
@@ -21,4 +22,4 @@ module.exports = {
     },
   },
   plugins: [],
-};
+} satisfies Config;

@@ -8,7 +8,7 @@ describe("<RenderIf />", () => {
     const { queryByText } = render(
       <RenderIf condition={1 + 1 === 2}>
         <p>{text}</p>
-      </RenderIf>
+      </RenderIf>,
     );
 
     expect(queryByText(text)).toBeInTheDocument();
@@ -19,7 +19,7 @@ describe("<RenderIf />", () => {
     const { queryByText } = render(
       <RenderIf condition={1 + 1 === 3}>
         <p>{text}</p>
-      </RenderIf>
+      </RenderIf>,
     );
 
     expect(queryByText(text)).not.toBeInTheDocument();

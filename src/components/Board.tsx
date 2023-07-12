@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import { useBoard } from "../hooks/useBoard";
 import { LineWinner } from "./LineWinner";
 import { RenderIf } from "./RenderIf";
@@ -24,20 +25,20 @@ export function Board() {
     <div className="flex flex-col items-center gap-8">
       <section>
         <RenderIf condition={!winner && isGameOver}>
-          <h1 className="text-center text-2xl font-bold mb-8">Tie!</h1>
+          <h1 className="mb-8 text-center text-2xl font-bold">Tie!</h1>
         </RenderIf>
         <RenderIf condition={winner === "X"}>
-          <h1 className="text-center text-2xl font-bold mb-8">X wins!</h1>
+          <h1 className="mb-8 text-center text-2xl font-bold">X wins!</h1>
         </RenderIf>
         <RenderIf condition={winner === "O"}>
-          <h1 className="text-center text-2xl font-bold mb-8">O wins!</h1>
+          <h1 className="mb-8 text-center text-2xl font-bold">O wins!</h1>
         </RenderIf>
         <RenderIf condition={!winner && !isGameOver}>
-          <h1 className="text-center text-2xl font-bold mb-8">
+          <h1 className="mb-8 text-center text-2xl font-bold">
             {player}'s turn
           </h1>
         </RenderIf>
-        <div className="grid grid-cols-3 grid-rows-3 relative">
+        <div className="relative grid grid-cols-3 grid-rows-3">
           {board.map((value, index) => (
             <Square
               key={index}
@@ -53,7 +54,7 @@ export function Board() {
         </div>
       </section>
       <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold w-80 py-4 rounded transition-colors duration-300"
+        className="w-80 rounded bg-blue-500 py-4 font-bold text-white transition-colors duration-300 hover:bg-blue-700"
         type="button"
         onClick={handleRestartGame}
       >

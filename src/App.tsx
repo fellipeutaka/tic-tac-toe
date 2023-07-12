@@ -2,7 +2,7 @@ import { Board } from "./components/Board";
 
 export function App() {
   return (
-    <main className="flex flex-col justify-center items-center w-full min-h-screen gap-4 dark:bg-black dark:text-white transition-colors duration-300">
+    <main className="flex min-h-screen w-full flex-col items-center justify-center gap-4 transition-colors duration-300 dark:bg-black dark:text-white">
       <Board />
     </main>
   );

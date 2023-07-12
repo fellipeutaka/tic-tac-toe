@@ -5,7 +5,7 @@ export default defineConfig({
   test: {
     globals: true,
     environment: "jsdom",
-    setupFiles: "./vitest.setup.ts",
+    setupFiles: "./tests/setup.ts",
     exclude: ["node_modules", "dist"],
   },
   plugins: [viteTsconfigPaths()],

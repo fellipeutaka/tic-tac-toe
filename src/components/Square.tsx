@@ -1,7 +1,8 @@
-import { HTMLProps } from "react";
+import { type ComponentProps } from "react";
+
 import { clsx } from "clsx";
 
-type SquareProps = HTMLProps<HTMLButtonElement> & {
+type SquareProps = ComponentProps<"button"> & {
   value: string;
   index: number;
 };
@@ -12,7 +13,7 @@ export function Square({ value, disabled, index, ...props }: SquareProps) {
   return (
     <button
       className={clsx(
-        "w-24 h-24 font-bold text-4xl disabled:cursor-not-allowed",
+        "h-24 w-24 text-4xl font-bold disabled:cursor-not-allowed",
         {
           "border-b border-blue-500":
             indexesWithoutBorderRight.includes(index) && index < 8,
@@ -21,9 +22,9 @@ export function Square({ value, disabled, index, ...props }: SquareProps) {
           "border-r border-blue-500": index > 5 && index < 8,
         },
         {
-          "border-r border-b border-blue-500":
+          "border-b border-r border-blue-500":
             !indexesWithoutBorderRight.includes(index) && index <= 5,
-        }
+        },
       )}
       {...props}
       disabled={disabled}

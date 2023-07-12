@@ -1,9 +1,10 @@
+import { clsx } from "clsx";
+
 import {
   diagonalVictoriousPositions,
   horizontalVictoriousPositions,
   verticalVictoriousPositions,
 } from "@tic-tac-toe/constants/positions";
-import { clsx } from "clsx";
 
 type LineWinnerProps = {
   board: string[];
@@ -23,7 +24,7 @@ function generateLinePositions(board: string[]) {
           position.every((squareIndex) => board.at(squareIndex) === "X") ||
           position.every((squareIndex) => board.at(squareIndex) === "O"),
       };
-    }
+    },
   );
   const verticalPositions = verticalVictoriousPositions.map(
     (position, index) => {
@@ -38,7 +39,7 @@ function generateLinePositions(board: string[]) {
           position.every((squareIndex) => board.at(squareIndex) === "X") ||
           position.every((squareIndex) => board.at(squareIndex) === "O"),
       };
-    }
+    },
   );
   const diagonalPositions = diagonalVictoriousPositions.map(
     (position, index) => {
@@ -51,7 +52,7 @@ function generateLinePositions(board: string[]) {
           position.every((squareIndex) => board.at(squareIndex) === "X") ||
           position.every((squareIndex) => board.at(squareIndex) === "O"),
       };
-    }
+    },
   );
   return [...horizontalPositions, ...verticalPositions, ...diagonalPositions];
 }
@@ -60,8 +61,8 @@ export function LineWinner({ board }: LineWinnerProps) {
   return (
     <div
       className={clsx(
-        "absolute h-0.5 bg-white animate-line",
-        generateLinePositions(board)
+        "absolute h-0.5 animate-line bg-white",
+        generateLinePositions(board),
       )}
     />
   );

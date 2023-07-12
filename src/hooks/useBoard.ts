@@ -1,4 +1,5 @@
 import { Player } from "@tic-tac-toe/@types/Player";
+
 import { Board } from "../@types/Board";
 import { getCurrentPlayer, getIsGameOver, getWinner } from "../utils/board";
 
